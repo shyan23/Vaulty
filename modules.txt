@@ -1,0 +1,134 @@
+1. Core Modules
+1.1. Input Parser Module
+
+    Handles input.txt reading
+
+    Processes key-value pairs (e.g., GEMINI_API_CODE = "sk-***")
+
+    Validates input format
+
+    Supports multiple file inputs (make_vault file1.txt file2.txt)
+
+1.2. Vault Creation Module
+
+    Generates SSH key pairs (public/private) during vault creation
+
+    Creates encrypted .vault files
+
+    Implements secure storage mechanism
+
+    Handles multiple vault versions (gen1.vault, gen2.vault, etc.)
+
+1.3. Vault Interface Module
+
+    Provides VS Code integration for visual key management
+
+    Shows available keys without values
+
+    Implements secure access controls
+
+    Handles .env-like access patterns (gen1.get('openai_key'))
+
+2. Security Modules
+2.1. Encryption Module
+
+    Handles encryption/decryption of vault contents
+
+    Manages SSH key pairs
+
+    Implements secure value retrieval
+
+2.2. Access Control Module
+
+    Prevents key printing/viewing
+
+    Manages permission levels
+
+    Implements secure audit trails
+
+3. API Management Modules
+3.1. Rate Limiter Module
+
+    Fine-grained control per API key
+
+    Global rate limiting
+
+    Configurable thresholds
+
+3.2. API Monitoring Module
+
+    Tracks API usage statistics
+
+    Records access patterns
+
+    Provides blocking functionality
+
+4. Dashboard Module
+4.1. Analytics Engine
+
+    Tracks file usage statistics
+
+    Monitors API call frequencies
+
+    Generates usage reports
+
+4.2. Management Interface
+
+    Web-based or terminal dashboard
+
+    Visual representation of usage
+
+    Configuration controls for:
+
+        Rate limiting
+
+        Key management
+
+        Vault modification
+
+5. Utility Modules
+5.1. CLI Interface
+
+    Handles make_vault command
+
+    Manages command arguments
+
+    Provides user feedback
+
+5.2. File Watcher
+
+    Monitors vault files for changes
+
+    Triggers re-encryption when modified
+
+    Maintains version history
+
+Implementation Flow
+
+    Initialization:
+
+        User runs make_vault file1.txt file2.txt
+
+        Input Parser validates and processes files
+
+        Vault Creator generates SSH keys and creates encrypted vault
+
+    Development Usage:
+
+        Developer accesses keys via vault.get()
+
+        Rate Limiter monitors and controls API calls
+
+        All access is logged for dashboard
+
+    Management:
+
+        Administrator uses dashboard to:
+
+            View usage statistics
+
+            Adjust rate limits
+
+            Modify vault contents
+
+            Block/rotate keys

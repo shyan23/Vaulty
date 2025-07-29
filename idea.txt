@@ -1,0 +1,13 @@
+i think instead of making a webapp, a command line tool will be much effective
+here it will do the workflow
+1. there will be a input.txt where there will be passwords
+2. key value pair like GEMINI_API_CODE = "sk -***" and such
+3. the user will do command line like make_vault file1.txt , it can be multiple or single file
+4.while making a vault, the system will give me a SSH key, public private in a file
+5. after that a file will be generated in the project root, where if i want to visit it in VSCODE, i click to the file, like gen1.vault there will be an interface, mentioning what keys are there visually, but wont show the 
+value
+6. i can call from the file like gen1.get('openai_key') or sth like, .env file
+7. i cant print or see the keys,
+8.Added implementation : i can implement rate limiter for the each api,maybe fine grain control to each api keys or overall as a whole 
+9. make a DASHBOARD about the files, which files are used how many times, which API's are used how many times and all
+rate limiter can be controlled from there, can block any file,modify,add any environment variables.
