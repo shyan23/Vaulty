@@ -1,13 +1,31 @@
-i think instead of making a webapp, a command line tool will be much effective
-here it will do the workflow
-1. there will be a input.txt where there will be passwords
-2. key value pair like GEMINI_API_CODE = "sk -***" and such
-3. the user will do command line like make_vault file1.txt , it can be multiple or single file
-4.while making a vault, the system will give me a SSH key, public private in a file
-5. after that a file will be generated in the project root, where if i want to visit it in VSCODE, i click to the file, like gen1.vault there will be an interface, mentioning what keys are there visually, but wont show the 
-value
-6. i can call from the file like gen1.get('openai_key') or sth like, .env file
-7. i cant print or see the keys,
-8.Added implementation : i can implement rate limiter for the each api,maybe fine grain control to each api keys or overall as a whole 
-9. make a DASHBOARD about the files, which files are used how many times, which API's are used how many times and all
-rate limiter can be controlled from there, can block any file,modify,add any environment variables.
+
+
+ 1. There will be a `input.txt` where there will be passwords
+ 2. Key-value pair like `GEMINI_API_CODE = "sk-***"` and such
+ 3. The user will do command line like `make_vault file1.txt`, it can be multiple or single file
+ 4. While making a vault, the system will give me an SSH key, public-private in a file
+ 5. After that, a file will be generated in the project root — e.g., `gen1.vault` — where if I want to visit it in VSCode, I click the file and see an interface mentioning what keys are there **visually**, but it **won’t show the values**
+ 6. I can call from the file like `gen1.get('openai_key')` or something like `.env` file usage
+ 7. I can’t print or see the key values in code — only pass to API
+ 8. Added implementation: I can implement **rate limiter** for each API, maybe fine-grain control for each API key or overall as a whole
+ 9. Make a **dashboard** about the vault files: which files are used how many times, which APIs are used how many times
+      • Rate limiter can be controlled from there
+      • Can block any file, modify, add env variables
+
+
+ 🔐 **New addition**: A local **in-memory secured binary runtime (agent)** will be generated with the vault.
+   • This binary will decrypt values only during execution
+   • It avoids repeated DB lookup by keeping values securely in memory
+   • This binary is iron-clad — encrypted state tracking and tamper protection
+   • Usage limits and API call counters will be tracked locally in a binary `.state` file
+   • This allows secure, offline access without leaking secrets or overusing keys
+
+
+
+ Implementation details:
+
+ 1. To merge two `.vault` files
+ 2. Effective hashing (maybe Merkle tree)
+ 3. Secure offline usage with binary runtime agent
+
+
